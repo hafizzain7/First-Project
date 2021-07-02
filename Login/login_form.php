@@ -8,7 +8,7 @@
 
       $sql="SELECT name, password FROM islamabad WHERE name='".$name."' AND password='".$password."'";
       $conn->query($sql);
-      echo "<script>location.href='/Zain_Projects/Responsive Website/index.html'</script>";
+      echo "<script>location.href='/Junaid Shoes/welcome/index.html'</script>";
 
      };
 

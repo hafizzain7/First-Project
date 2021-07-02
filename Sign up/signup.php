@@ -10,6 +10,7 @@ $conn = new mysqli("localhost","root","","nadra");
       $sql="INSERT INTO islamabad (name,email,password)
       VALUES ('$name','$email','$password')";
       $conn->query($sql);
+      echo "<script>location.href='/Junaid Shoes/Login/login_form.php'</script>";
  }
 
 ?>
