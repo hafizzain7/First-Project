@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -15,72 +18,9 @@
 </head>
 
 <body>
-
     <section class="bgimg">
-        <!--  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-           
-            <div class="container">
-                <a class="navbar-brand text-white">
-                    Junaid Shoes
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="collapsenav">
-                     <ul class="navbar-nav ms-auto">
-                         <li class="nav-item">
-                             <a href="" class="nav-link text-white">Services</a>
-                         </li>
-                         <li class="nav-item">
-                            <a href="" class="nav-link text-white">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white">Conatct</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white">Team</a>
-                        </li>
-                     </ul>
-                </div>
-            </div>
-        </nav> -->
         <!-- -----Navbar----- -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
-            <div class="container">
-                <a class="navbar-brand text-white" style="font-size: 40px;" href="#"><b>Juniad Shoes</b></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto text-center mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">About</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Gallery
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php include('header.php')?>
 
 
         <!-- ------Text on Navbar---- -->
@@ -205,7 +145,7 @@
                     ?>
 
                             <div class="col-lg-3 col-md-3 col-sm-12">
-                                <form>
+                                <form action="manage.php" method="post">
                                     <div class="card">
                                     <img src="<?php echo $product['image']; ?>" alt="Shoes1" class="img-fluid card-img mb-2">
                                         <div class="card-title">
@@ -219,8 +159,13 @@
                                             </div>
 
                                         <div class="btn-group d-flex">
-                                            <button class="bt btn-success flex-fill">Add to Cart</button>
-                                            <button class="bt btn-warning flex-fill">Buy Now</button>
+                                            <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                                            <input type="hidden" name="name" value="<?php echo $product['name']; ?>">
+                                            <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
+                                            <input type="hidden" name="image" value="<?php echo $product['image']; ?>">
+                                            <button type="submit" name="submit" class="bt btn-success flex-fill">Add to Cart</button>
+                                            
+                                            <!-- <button class="bt btn-warning flex-fill">Buy Now</button> -->
                                         </div>
                                     </div>
                                 </form>
@@ -275,6 +220,7 @@
         </div>
 
     </section>
+    <?php print_r($_SESSION['cart']); ?>
 
 
 
